@@ -49,3 +49,4 @@ draw_config:
   dark_mode: auto
   glyph_tap_size: 18
   footer_text: 'LisM KEYMAPS | Created with keymap-drawer' 
+  
