@@ -7,7 +7,6 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <input/processors.dtsi>
 
-// JP配列変換
 #define JP_DQUOTE       AT
 #define JP_AMPERSAND    CARET
 #define JP_QUOTE        AMPERSAND
@@ -137,16 +136,19 @@
 
             sensor-bindings = <&encoder_msc SCRL_DOWN SCRL_UP>;
         };
-    };
 
-    scroll_mode_listener {
-        compatible = "zmk,input-listener";
-        device = <&trackball>;
+        layer_7 {
+            status = "reserved";
+            display-name = "Brank Layer";
+            bindings = <
+                &trans  &trans  &trans  &trans  &trans             &trans  &trans  &trans  &trans  &trans
+                &trans  &trans  &trans  &trans  &trans             &trans  &trans  &trans  &trans  &trans
+                &trans  &trans  &trans  &trans  &trans             &trans  &trans  &trans  &trans  &trans
+                &trans  &trans  &trans  &trans  &trans  &trans     &trans  &trans  &trans  &trans  &trans  &trans
+            >;
 
-        input-processors = <
-            &zip_temp_layer 6 10
-            &zip_xy_to_scroll_mapper
-        >;
+            sensor-bindings = <&encoder_msc SCRL_DOWN SCRL_UP>;
+        };
     };
 };
 
