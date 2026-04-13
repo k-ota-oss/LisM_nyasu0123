@@ -8,6 +8,6 @@ include:
 
   - board: seeeduino_xiao_ble
     shield: lism_right
-    snippet: trackball-central
-    artifact-name: lism_right_central_trackball
-    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=y
+    snippet: "studio-rpc-usb-uart trackball-central"
+    artifact-name: lism_right_central_trackball_studio
+    cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=y
