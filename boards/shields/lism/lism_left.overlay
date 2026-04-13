@@ -1,7 +1,1 @@
 #include "lism.dtsi"
-
-/ {
-    aliases {
-        led-red = &led0;
-    };
-};
