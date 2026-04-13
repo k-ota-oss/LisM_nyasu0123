@@ -2,12 +2,12 @@
 ---
 include:
   - board: seeeduino_xiao_ble
-    shield: lism_left
+    shield: lism_right
     snippet: trackball-peripheral
-    artifact-name: lism_left_peripheral_trackball
+    artifact-name: lism_right_peripheral_trackball
 
   - board: seeeduino_xiao_ble
-    shield: lism_right
-    snippet: "studio-rpc-usb-uart trackball-central"
-    artifact-name: lism_right_central_trackball_studio
+    shield: lism_left
+    snippet: "studio-rpc-usb-uart non-trackball-central"
+    artifact-name: lism_left_central_non_trackball_studio
     cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=y
