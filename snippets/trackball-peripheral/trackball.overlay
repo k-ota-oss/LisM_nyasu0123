@@ -6,3 +6,7 @@
     sensors = <&encoder>;
     triggers-per-rotation = <12>;
 };
+
+&trackball_split {
+    status = "disabled";
+};
