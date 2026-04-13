@@ -10,10 +10,16 @@
     };
 };
 
-// Overrides for the input-split child node
+&encoder {
+    status = "okay";
+};
+
+&sensors {
+    triggers-per-rotation = <12>;
+};
+
 &trackball_split {
     device = <&trackball_peripheral>;
     input-processors =
         <&zip_scroll_scaler 1 8>;
-    // <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
 };
