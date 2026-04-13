@@ -1,5 +1,11 @@
 #include "lism.dtsi"
 
+/ {
+    aliases {
+        led-red = &led0;
+    };
+};
+
 &transform_42keymap {
     col-offset = <5>;
 };
