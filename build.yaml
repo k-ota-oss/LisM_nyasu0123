@@ -3,12 +3,11 @@
 include:
   - board: seeeduino_xiao_ble
     shield: lism_left
-    artifact-name: lism_left
+    snippet: non-trackball-peripheral
+    artifact-name: lism_left_peripheral_non_trackball
 
   - board: seeeduino_xiao_ble
     shield: lism_right
-    artifact-name: lism_right
-
-  - board: seeeduino_xiao_ble
-    shield: settings_reset
-    artifact-name: settings_reset-seeeduino_xiao_ble-zmk
+    snippet: non-trackball-central
+    artifact-name: lism_right_central_non_trackball
+    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=y
