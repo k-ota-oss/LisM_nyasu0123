@@ -1,3 +1,6 @@
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+#include <dt-bindings/zmk/input_transform.h>
+
 &spi0 {
     status = "okay";
 
@@ -15,12 +18,17 @@
         scroll_mapper: scroll_mapper {
             compatible = "zmk,input-processor-code-mapper";
             #input-processor-cells = <0>;
-            mappings = <
+            type = <INPUT_EV_REL>;
+            map = <
                 INPUT_REL_X INPUT_REL_WHEEL
                 INPUT_REL_Y INPUT_REL_HWHEEL
             >;
         };
     };
+};
+
+&trackball_split {
+    status = "disabled";
 };
 
 &central_listener {
