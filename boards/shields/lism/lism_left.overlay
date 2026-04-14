@@ -1,5 +1,9 @@
 #include "lism.dtsi"
 
-&encoder {
-    status = "okay";
+&transform_42keymap {
+    col-offset = <0>;
+};
+
+&transform_40keymap {
+    col-offset = <0>;
 };
