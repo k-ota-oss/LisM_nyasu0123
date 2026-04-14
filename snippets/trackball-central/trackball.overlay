@@ -10,11 +10,24 @@
     };
 };
 
-&trackball_split {
-    status = "disabled";
+/ {
+    input_processors {
+        scroll_mapper: scroll_mapper {
+            compatible = "zmk,input-processor-code-mapper";
+            #input-processor-cells = <0>;
+            mappings = <
+                INPUT_REL_X INPUT_REL_WHEEL
+                INPUT_REL_Y INPUT_REL_HWHEEL
+            >;
+        };
+    };
 };
 
 &central_listener {
     status = "okay";
     device = <&trackball_central>;
+    input-processors =
+        <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>
+        , <&zip_scroll_scaler 1 10>
+        , <&scroll_mapper>;
 };
