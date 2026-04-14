@@ -1,7 +1,7 @@
 include:
   - board: seeeduino_xiao_ble
     shield: lism_left
-    snippet: non_trackball
+    snippet: non-trackball-peripheral
     artifact-name: lism_left
 
   - board: seeeduino_xiao_ble
