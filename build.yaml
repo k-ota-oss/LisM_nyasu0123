@@ -1,13 +1,28 @@
-# This file generates the GitHub Actions matrix.
----
-include:
-  - board: seeeduino_xiao_ble
-    shield: lism_left
-    snippet: trackball-peripheral
-    artifact-name: lism_left_peripheral_trackball
+name: Build ZMK Firmware
 
-  - board: seeeduino_xiao_ble
-    shield: lism_right
-    snippet: "studio-rpc-usb-uart trackball-central"
-    artifact-name: lism_right_central_trackball_studio
-    cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=y
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "config/**"
+      - "boards/**"
+      - "snippets/**"
+      - "build.yaml"
+      - ".github/workflows/build.yml"
+  pull_request:
+    paths:
+      - "config/**"
+      - "boards/**"
+      - "snippets/**"
+      - "build.yaml"
+      - ".github/workflows/build.yml"
+  workflow_dispatch:
+
+jobs:
+  build:
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    with:
+      build_matrix_path: build.yaml
+      config_path: config
+    secrets: inherit
