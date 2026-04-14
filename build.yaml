@@ -1,28 +1,11 @@
-name: Build ZMK Firmware
+include:
+  - board: seeeduino_xiao_ble
+    shield: lism_left
+    snippet: non_trackball
+    artifact-name: lism_left
 
-on:
-  push:
-    branches:
-      - main
-    paths:
-      - "config/**"
-      - "boards/**"
-      - "snippets/**"
-      - "build.yaml"
-      - ".github/workflows/build.yml"
-  pull_request:
-    paths:
-      - "config/**"
-      - "boards/**"
-      - "snippets/**"
-      - "build.yaml"
-      - ".github/workflows/build.yml"
-  workflow_dispatch:
-
-jobs:
-  build:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
-    with:
-      build_matrix_path: build.yaml
-      config_path: config
-    secrets: inherit
+  - board: seeeduino_xiao_ble
+    shield: lism_right
+    snippet: studio-rpc-usb-uart trackball-central
+    cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=y
+    artifact-name: lism_right
