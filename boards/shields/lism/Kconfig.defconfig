@@ -13,8 +13,4 @@ config ZMK_KEYBOARD_NAME
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
 
-config PAW3222
-    bool
-    default y
-
 endif
