@@ -1,16 +1,19 @@
-if SHIELD_LISM_LEFT
+manifest:
+  remotes:
+    - name: zmkfirmware
+      url-base: https://github.com/zmkfirmware
+    - name: sekigon-gonnoc
+      url-base: https://github.com/sekigon-gonnoc
 
-config ZMK_KEYBOARD_NAME
-    default "LisM"
+  projects:
+    - name: zmk
+      remote: zmkfirmware
+      revision: v0.3.0
+      import: app/west.yml
 
-endif
+    - name: zmk-driver-paw3222
+      remote: sekigon-gonnoc
+      revision: main
 
-if SHIELD_LISM_RIGHT
-
-config ZMK_KEYBOARD_NAME
-    default "LisM"
-
-config ZMK_SPLIT_ROLE_CENTRAL
-    default y
-
-endif
+  self:
+    path: config
